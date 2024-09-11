@@ -1,12 +1,21 @@
 import {View, Text, Pressable} from 'react-native';
+import {globalStyles} from '../../../theme/theme';
+import {useNavigation} from '@react-navigation/native';
+import {PrimaryButton} from '../../../components/shared/PrimaryButton';
 
 export const HomeScreen = () => {
-  console.log('props => ', props);
+  const navigation = useNavigation();
+
   return (
-    <View>
-      <Pressable>
-        <Text>HomeScreen</Text>
-      </Pressable>
+    <View style={globalStyles.container}>
+      <PrimaryButton
+        label="Productos"
+        onPress={() => navigation.navigate('Products' as never)}
+      />
+      <PrimaryButton
+        label="Settings"
+        onPress={() => navigation.navigate('Settings' as never)}
+      />
     </View>
   );
 };
